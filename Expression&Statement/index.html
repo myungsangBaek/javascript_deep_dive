@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    //값
+    var sum = 10 + 20; // 값 = 30
+
+    //리터럴
+    3; // 숫자 리터럴 3
+
+    //표현식
+    var score = 100;
+
+    var score = 50 + 50;
+
+    score; // 100
+
+    //예제 05-07
+    // 리터럴 표현식
+    10;
+    ("Hello");
+
+    // 식별자 표현식(선언이 이미 존재한다고 가정)
+    sum;
+    person.name;
+    arr[1];
+
+    // 연산자 표현식
+    10 + 20;
+    sum = 10;
+    sum !== 10;
+
+    // 함수/메서드 호출 표현식(선언이 이미 존재한다고 가정)
+    square();
+    person.getName();
+
+    //문
+    //예제 05-09
+    var x; // 변수 선언문
+
+    x = 5; //할당문
+
+    function foo() {} // 함수 선언문
+
+    if (x > 1) {
+      console.log(x);
+    } // 조건문
+
+    for (var i = 0; i < 2; i++) {
+      console.log(i);
+    } // 반복문
+
+    //표현식인 문과 표현식이 아닌 문
+    //예제 05-11
+    // 변수 선언문은 값으로 평가될 수 없으므로 표현식이 아니다.
+    var x;
+    // 1, 2, 1 + 2, x = 1 + 2는 모두 표현식이다.
+    // x = 1 + 2는 표현식이면서 완전한 문이기도 하다.
+    x = 1 + 2;
+
+    //예제 05-12,13
+    // 변수 선언문은 표현식이 아닌 문이다.
+    var x;
+
+    // 할당문은 그 자체가 표현식이지만 완전한 문이기도 하다. 즉, 할당문은 표현식인 문이다.
+    x = 100;
+
+    // 표현식이 아닌 문은 값처럼 사용할 수 없다.
+  </script>
+  <body></body>
+</html>
