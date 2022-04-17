@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    //setTimeout, clearTimeout
+    //1초(1000ms) 후 타이머가 만료되면 콜백 함수가 호출된다.
+    setTimeout(() => console.log("Hi"), 1000);
+
+    //1초(1000ms) 후 타이머가 만료되면 콜백 함수가 호출된다.
+    //이때 콜백 함수에 'Baek'가 인수로 전달된다.
+    setTimeout((name) => conosle.log(`Hi ${name}.`), 1000, "Baek");
+
+    //두 번째 인수(delay)를 생략하면 기본값 0이 지정된다.
+    setTimeout(() => console.log("Hello"));
+
+    //1초(1000ms) 후 타이머가 만료되면 콜백 함수가 호출된다.
+    //setTimeout 함수는 생성된 타이머를 식별할 수 있는 고유한 타이머 id를 반환한다.
+    const timerId = setTimeout(() => console.log("Hi"), 1000);
+
+    // setTimeout 함수가 반환한 타이머 id를 clearTimeout함수의 인수로 전달하여 타이머를 취소한다.
+    //타이머가 취소되면 setTimeout 함수의 콜백 함수가 실행되지 않는다.
+    clearTimeout(timerId);
+
+    //setInterval, clearInterval
+    let count = 1;
+    // 1초(1000ms) 후 타이머가 만료될 때마다 콜백 함수가 호출된다.
+    //setInterval 함수는 생성된 타이머를 식별할 수 있는 고유한 타이머 id를 반환한다.
+    const timeoutId = setInterval(() => {
+      console.log(count); // 1 2 3 4 5
+
+      //count가 5이면 setInterval 함수가 반환한 타이머 id를 clearInterval 함수의 인수로 전달하여
+      //타이머를 취소한다. 타이머가 취소되면 setInterval 함수의 콜백 함수가 실행되지 않는다.
+      if (count++ === 5) clearInterval(timeoutId);
+    }, 1000);
+  </script>
+  <body>
+    <button>click me</button>
+    <pre>일반 클릭 이벤트 카운터 <span class ="normal-msg">0</span></pre>
+    <pre>디바운스 클릭 이벤트 카운터 <span class ="debounce-msg">0</span></pre>
+    <pre>스로틀 클릭 이벤트 카운터 <span class ="throttle-msg">0</span></pre>
+    <script>
+      const $button = document.querySelector("button");
+      const $normalMsg = document.querySelector(".normal-msg");
+      const $debounceMsg = document.querySelector(".debounce-msg");
+      const $throttleMsg = document.querySelector(".throttle-msg");
+
+      const debounce = (callback, delay) => {
+        let timerId;
+        return (event) => {
+          if (timerId) clearTimeout(timerId);
+          timerId = setTimeout(callback, delay, event);
+        };
+      };
+
+      const throttle = (callback, delay) => {
+        let timerId;
+
+        return (event) => {
+          if (timerId) return;
+          timerId = setTimeout(
+            () => {
+              callback(event);
+              timerId = null;
+            },
+            delay,
+            event
+          );
+        };
+      };
+
+      $button.addEventListener("click", () => {
+        $normalMsg.textContent = +$normalMsg.textContent + 1;
+      });
+      $button.addEventListener(
+        "click",
+        debounce(() => {
+          $debounceMsg.textContent = +$debounceMsg.textContent + 1;
+        }, 500)
+      );
+      $button.addEventListener(
+        "click",
+        throttle(() => {
+          $throttleMsg.textContent = +$throttleMsg.textContent + 1;
+        }, 500)
+      );
+    </script>
+  </body>
+</html>
