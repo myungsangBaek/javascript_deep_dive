@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    //예제 06-08
+    var template = `Template literal`;
+    console.log(template); // Template literal
+
+    //멀티라인 문자열
+    //예제 06-09
+    var str = 'Hello
+    world.';
+    //SyntaxError
+
+    //예제 06-10
+    var template = '<ul>\n\t<li><a href="#">Home</a></li>\n</ul>';
+
+    var template = `<ul>
+        <li><a href="#">Home</a></li>
+        </ul>`;
+
+    //표현식 삽입
+    //예제 06-12
+    var first = 'Han';
+    var last = 'Baek';
+
+    // ES5: 문자열 연결
+    console.log('My name is ' + first + ' ' + last + '.'); //My name is Han Baek.
+
+    // ES6: 표현식 삽입
+    console.log(`My name is ${first} ${last}.`); ////My name is Han Baek.
+
+    //불리언 타입
+    //06-16
+    var foo = true;
+    console.log(foo); //true
+
+    foo = false;
+    console.log(foo); // false
+
+    //undefined 타입
+    //06-17
+    var foo;
+    console.log(foo) //undefined
+
+    //null 타입
+    var foo = 'Baek';
+
+    //이전 참조를 제거, foo 변수는 더 이상 'Baek'을 참조하지 않는다.
+    foo = null;
+
+    var element = document.querySelector('.myClass');
+
+    // HTML 문서에 myClass 클래스를 갖는 요소가 없다면 null을 반환한다.
+    console.log(element); // null
+
+    //심벌 값 생성
+    var key = Symbol('key');
+    console.log(typeof key); //symbol
+
+    //객체 생성
+    var obj = {};
+
+    //이름이 충돌할 위험이 없는 유일무이한 값인 심벌을 프로퍼티 키로 사용한다.
+    obj[key] = 'value';
+    console.log(obj[key]); // value
+
+    //동적 타이핑
+    var foo;
+    console.log(typeof foo); // undefined
+
+    foo = 3;
+    console.log(typeof foo); // number
+
+    foo = 'Hello';
+    console.log(typeof foo); // string
+
+    foo = true;
+    console.log(typeof foo); // boolean
+
+    foo = null;
+    console.log(typeof foo); // object
+
+    foo = Symbol(); //심벌
+    console.log(typeof foo); // symbol
+
+    foo = {}; // 객체
+    console.log(typeof foo); // object
+
+    foo = []; // 배열
+    console.log(typeof foo); // object
+
+    foo = function(){}; // 함수
+    console.log(typeof foo); // function
+  </script>
+  <body></body>
+</html>
