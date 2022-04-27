@@ -1,6 +1,6 @@
 # javascript_deep_dive
 
-자바스크립트 딥다이브 예제 및 개념을 정리
+자바스크립트 딥다이브를 복습하며 예제를 정리하였습니다.
 
 ### Getting Started
 
