@@ -32,3 +32,62 @@ console.log(typeof x, x); //number 10
 !0; //  -> true
 if (1) {
 }
+
+//09-14
+// 1. String 생성사 함수를 new 연산자 없이 호출하는 방법
+
+String(1); // -> '1'
+String("true"); // -> 'true'
+
+//2. Object.prototype.toString 메서드를 사용하는 방법
+
+(1).toString(); // -> '1'
+true.toString(); // -> 'true'
+
+//3. 문자열 연결 연산자를 이용하는 방법
+1 + ""; // -> '1'
+true + ""; // -> 'true
+
+//09-15
+//1. Number 생성자 함수를 new 연산자 없이 호출하는 방법
+Number("0"); //-> 0
+
+//2. parseInt, parseFloat 함수를 사용하는 방법 (문자열만 변환 가능)
+parseInt("0"); //-> 0
+parseFloat("10.53"); // -> 10.53
+
+//3. + 단항 산술 연산자를 이용하는 방법
++"0"; // -> 0
++"-1"; // -> -1
+
++true; // -> 1
++false; // -> 0
+
+//4. * 산술 연산자를 이용하는 방법
+"0" * 1; // ->0
+true * 1; // ->1
+
+//09-16
+//1. Boolean 생성자 함수를 new 연산자 없이 호출하는 방법
+Boolean("x"); // -> true
+Boolean(""); // -> false
+
+Boolean(null); // ->false
+Boolean(undefined); // ->false
+
+Boolean({}); // -> true
+Boolean([]); // -> true
+
+//2. !부정 논리 연산자를 두 번 사용하는 방법
+!!"x"; // ->true
+!!""; // ->false
+!!"false"; // ->true
+
+!!0; // -> false
+!!1; // ->true
+!!Infinity; // -> true
+
+!!null; // ->false
+
+!!{}; // -> true
+!![]; // -> true
