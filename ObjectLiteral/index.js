@@ -149,3 +149,22 @@ delete person.age;
 delete person.address;
 
 console.log(person); // {name: "Baek"}
+
+//10-19
+//ES5
+var x = 1, y = 2;
+
+var obj = {
+    x: x,
+    y: y
+};
+
+console.log(obj); // {x: 1, y: 2}
+
+//ES6
+let x = 1, y = 2;
+
+//프로퍼티 축약 표현
+const obj = { x, y };
+
+console.log(obj); // {x: 1, y: 2}
